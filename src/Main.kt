@@ -1,7 +1,7 @@
 fun main(){
 
 
-    //TODO: Crear 3 cafeteras en la Sala, Cocina y Oficina
+    //TODO: Crear 3 cafeeras en la Sala, Cocina y Oficina
     val cafetera1 = Cafetera("Salón")
     val cafetera2 = Cafetera("Sótano",750)
     val cafetera3 = Cafetera("Armario",500, 200)
