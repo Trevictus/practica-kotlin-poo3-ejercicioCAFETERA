@@ -41,7 +41,7 @@ class Cafetera(val ubicacion: String) {
     fun agregarCafe(cantidad : Int = 200){
 
         if(cantidad + this.cantidad > this.capacidad){
-            capacidad = 1000
+            this.cantidad = capacidad
             println("No se puede agregar mas café.")
         }else{
             this.cantidad += cantidad
