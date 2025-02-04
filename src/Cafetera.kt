@@ -5,17 +5,22 @@ class Cafetera(val ubicacion: String) {
     val agregar: Int = 200
 
     constructor(ubicacion: String, capacidad: Int): this(ubicacion){
+        this.capacidad = capacidad
         this.cantidad = capacidad
     }
 
     constructor(ubicacion: String, capacidad: Int, cantidad: Int): this(ubicacion, capacidad){
+        this.capacidad = capacidad
+
         if (cantidad > capacidad){
             this.cantidad = capacidad
+        }else{
+            this.cantidad = cantidad
         }
     }
 
     fun llenar(){
-        this.cantidad = this.capacidad
+        cantidad = capacidad
     }
 
     fun servirTaza(taza: Taza){
@@ -25,15 +30,25 @@ class Cafetera(val ubicacion: String) {
         }
         if(cantidad < taza.capacidad){
             taza.capacidad = cantidad
-            cantidad
+            cantidad = 0
         }
     }
 
     fun vaciar(){
-        cantidad
+        cantidad = 0
     }
 
-    fun agregarCafe(){
-        capacidad += agregar
+    fun agregarCafe(cantidad : Int = 200){
+
+        if(cantidad + this.cantidad > this.capacidad){
+            capacidad = 1000
+            println("No se puede agregar mas café.")
+        }else{
+            this.cantidad += cantidad
+        }
+    }
+
+    override fun toString(): String {
+        return "Cafetera(ubicación = $ubicacion, capacidad = $capacidad c.c., cantidad = $cantidad c.c.)"
     }
 }
